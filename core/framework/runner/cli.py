@@ -6,6 +6,8 @@ import json
 import sys
 from pathlib import Path
 
+from framework.defaults import DEFAULT_MODEL
+
 
 def register_commands(subparsers: argparse._SubParsersAction) -> None:
     """Register runner commands with the main CLI."""
@@ -210,7 +212,7 @@ def cmd_run(args: argparse.Namespace) -> int:
         runner = AgentRunner.load(
             args.agent_path,
             mock_mode=args.mock,
-            model=getattr(args, "model", "claude-haiku-4-5-20251001"),
+            model=getattr(args, "model", DEFAULT_MODEL),
         )
     except FileNotFoundError as e:
         print(f"Error: {e}", file=sys.stderr)

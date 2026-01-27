@@ -8,6 +8,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
+from framework.defaults import DEFAULT_MODEL
 from framework.llm.provider import LLMProvider
 from framework.runner.protocol import (
     AgentMessage,
@@ -55,7 +56,7 @@ class AgentOrchestrator:
     def __init__(
         self,
         llm: LLMProvider | None = None,
-        model: str = "claude-haiku-4-5-20251001",
+        model: str = DEFAULT_MODEL,
     ):
         """
         Initialize the orchestrator.

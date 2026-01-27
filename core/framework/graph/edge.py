@@ -27,6 +27,7 @@ from typing import Any
 
 from pydantic import BaseModel, Field
 
+from framework.defaults import DEFAULT_MODEL
 from framework.graph.safe_eval import safe_eval
 
 
@@ -409,7 +410,7 @@ class GraphSpec(BaseModel):
     )
 
     # Default LLM settings
-    default_model: str = "claude-haiku-4-5-20251001"
+    default_model: str = DEFAULT_MODEL
     max_tokens: int = 1024
 
     # Execution limits

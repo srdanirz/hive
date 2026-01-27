@@ -28,6 +28,8 @@ from __future__ import annotations
 import json
 from typing import TYPE_CHECKING, Any
 
+from framework.defaults import DEFAULT_MODEL
+
 if TYPE_CHECKING:
     from framework.llm.provider import LLMProvider
 
@@ -116,7 +118,7 @@ Only output the JSON, nothing else."""
                 # Fallback to Anthropic (backward compatible)
                 client = self._get_client()
                 response = client.messages.create(
-                    model="claude-haiku-4-5-20251001",
+                    model=DEFAULT_MODEL,
                     max_tokens=500,
                     messages=[{"role": "user", "content": prompt}],
                 )

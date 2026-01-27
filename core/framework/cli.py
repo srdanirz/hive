@@ -19,12 +19,14 @@ Testing commands:
 import argparse
 import sys
 
+from framework.defaults import DEFAULT_MODEL
+
 
 def main():
     parser = argparse.ArgumentParser(description="Goal Agent - Build and run goal-driven agents")
     parser.add_argument(
         "--model",
-        default="claude-haiku-4-5-20251001",
+        default=DEFAULT_MODEL,
         help="Anthropic model to use",
     )
 
